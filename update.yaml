@@ -1,0 +1,7 @@
+- name: Update Servers
+  hosts: testservers
+  tasks:
+   - name: Update all packages to their latest version
+     ansible.builtin.apt:
+       name: "*"
+       state: latest
