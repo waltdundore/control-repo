@@ -2,6 +2,7 @@
   hosts: testservers
   tasks:
    - name: Update all packages to their latest version
+     become: true
      ansible.builtin.apt:
        name: "*"
        state: latest
