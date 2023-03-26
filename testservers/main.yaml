@@ -1,0 +1,7 @@
+- name: Update Servers
+  hosts: testservers
+  become: true
+  become_user: root
+  tasks:
+    - import_tasks: update.yaml
+      
