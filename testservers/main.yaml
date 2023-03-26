@@ -1,0 +1,7 @@
+- name: Test Server Maintenance
+  hosts: testservers
+  become: true
+  become_user: root
+  tasks:
+    - name: Run updates
+      ansible.builtin.import_playbook: update.yaml
