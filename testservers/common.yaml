@@ -4,3 +4,10 @@
   become_user: root
   tasks:
     - import_tasks: tasks/update.yaml
+    - name: Set timezone to America/New_York
+      community.general.timezone:
+        name: America/New_York
+    - name: Set NTP servers
+        ntpclient_servers:
+        - rolex.usg.edu
+        - timex.usg.edu
