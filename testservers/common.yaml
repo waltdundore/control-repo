@@ -1,6 +1,1 @@
-- name: Common Tasks File
-  hosts: testservers
-  become: true
-  become_user: root
-  tasks:
-    - import_tasks: tasks/update.yaml
+ - import_tasks: tasks/update.yaml
