@@ -1,12 +1,21 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 - name: Main Controller File
 =======
 - name: Main controller file
 >>>>>>> 1.03
+=======
+<<<<<<< Updated upstream
+- name: Main controller file
+=======
+- name: Main Controller File
+>>>>>>> Stashed changes
+>>>>>>> 1.0.4
   hosts: testservers
   become: true
   become_user: root
   tasks:
+<<<<<<< Updated upstream
     - import_tasks: update.yaml
 <<<<<<< HEAD
 =======
@@ -14,4 +23,10 @@
       ansible.builtin.debug:
          var: ansible_facts
       
+<<<<<<< HEAD
 >>>>>>> 1.03
+=======
+=======
+    - import_tasks: common.yaml
+>>>>>>> Stashed changes
+>>>>>>> 1.0.4
