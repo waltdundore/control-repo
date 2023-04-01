@@ -11,7 +11,7 @@ jobs:
     -uses: actions/checkout@v2
 
     -name: Lint ansible playbook
-    uses: ansible/ansible-lint-action@production
+    uses: waltdundore/control-repo@production
     with:
       #[required]
       #Paths to ansible files or valid directories
