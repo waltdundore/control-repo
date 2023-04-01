@@ -1,0 +1,18 @@
+name: Ansible Lint
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+
+    steps:
+    #Sets up the GITHUB_WORKSPACE environment variable
+    -uses: actions/checkout@v2
+
+    -name: Lint ansible playbook
+    uses: ansible/ansible-lint-action@production
+    with:
+      #[required]
+      #Paths to ansible files or valid directories
+      main.yaml
