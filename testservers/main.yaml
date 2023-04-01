@@ -1,49 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 - name: Main Controller File
-=======
-- name: Main controller file
->>>>>>> 1.03
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-- name: Main controller file
-=======
-- name: Main Controller File
->>>>>>> Stashed changes
-<<<<<<< HEAD
->>>>>>> 1.0.4
-=======
-=======
-- name: Main Controller File
->>>>>>> Stashed changes
->>>>>>> 1.0.5
   hosts: testservers
   become: true
   become_user: root
   tasks:
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    - import_tasks: update.yaml
-<<<<<<< HEAD
-=======
-    - name: Print all available facts
-      ansible.builtin.debug:
-         var: ansible_facts
-      
-<<<<<<< HEAD
->>>>>>> 1.03
-=======
-=======
     - import_tasks: common.yaml
->>>>>>> Stashed changes
-<<<<<<< HEAD
->>>>>>> 1.0.4
-=======
-=======
-    - name: Print all available facts
-      ansible.builtin.debug:
-         var: ansible_facts
-    - import_tasks: common.yaml
->>>>>>> Stashed changes
->>>>>>> 1.0.5
+
