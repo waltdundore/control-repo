@@ -1,29 +1,8 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-- name: Main controller file
-=======
+
 - name: Main Controller File
->>>>>>> Stashed changes
-=======
-- name: Main Controller File
->>>>>>> Stashed changes
   hosts: testservers
   become: true
   become_user: root
   tasks:
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    - import_tasks: update.yaml
-    - name: Print all available facts
-      ansible.builtin.debug:
-         var: ansible_facts
-      
-=======
     - import_tasks: common.yaml
->>>>>>> Stashed changes
-=======
-    - name: Print all available facts
-      ansible.builtin.debug:
-         var: ansible_facts
-    - import_tasks: common.yaml
->>>>>>> Stashed changes
+
