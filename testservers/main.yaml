@@ -27,7 +27,7 @@
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
         Enterprise Linux' or ansible_distribution == 'RedHat'
     - name: Deploy chrony.conf template
-      ansible.builtin.geturl:
+      ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/waltdundore/control-repo/production/templates/etc/chrony.conf.j2
         dest: /etc/chrony.conf
         owner: root
