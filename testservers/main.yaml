@@ -7,16 +7,15 @@
   tasks:
     - name: Update Debian based Machines
       ansible.builtin.apt:
-        name:
-          "*"
+        name: "*"
         state: latest
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
     - name: Update yum systems
       ansible.builtin.dnf:
-        name:
-          "*"
+        name: "*"
         state: latest
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
+        Enterprise Linux' or ansible_distribution == 'RedHat'
     - name: Package installation
       ansible.builtin.dnf:
         name:
@@ -24,20 +23,22 @@
           - httpd
           - mariadb-server
         state: latest
-        update_cache: yes
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
-    - name: deploy chrony.conf template
-      template:
-      src: /templates/etc/chrony.conf.j2
-      dest: /etc/chrony.conf
-      owner: root
-      group: root
-      mode: 0644
-      backup: yes
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
-
+        update_cache: true
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
+        Enterprise Linux' or ansible_distribution == 'RedHat'
+    - name: Deploy chrony.conf template
+      ansible.builtin.template:
+        src: /templates/etc/chrony.conf.j2
+        dest: /etc/chrony.conf
+        owner: root
+        group: root
+        mode: 644
+        backup: true
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
+        Enterprise Linux' or ansible_distribution == 'RedHat'
     - name: Restart chronyd
-      service:
+      ansible.builtin.service:
         name: chronyd
         state: restarted
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
+        Enterprise Linux' or ansible_distribution == 'RedHat'
