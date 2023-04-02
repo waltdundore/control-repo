@@ -1,5 +1,6 @@
 ---
-- hosts: testservers
+- name: Monolithic update
+  hosts: testservers
   become: true
   user: wdundore
   connection: ssh
@@ -15,5 +16,4 @@
         name:
           "*"
         state: latest
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
-        Enterprise Linux' or ansible_distribution == 'RedHat' 
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
