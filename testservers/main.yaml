@@ -14,16 +14,16 @@
       ansible.builtin.dnf:
         name: "*"
         state: latest
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
-        Enterprise Linux' or ansible_distribution == 'RedHat'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
     - name: Package installation
       ansible.builtin.dnf:
         name:
           - chrony
+          - podman
+          - podman-compose
         state: latest
         update_cache: true
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
-        Enterprise Linux' or ansible_distribution == 'RedHat'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
     - name: Deploy chrony.conf template
       ansible.builtin.get_url:
         url: https://raw.githubusercontent.com/waltdundore/control-repo/production/templates/etc/chrony.conf.j2
@@ -32,11 +32,9 @@
         group: root
         mode: 644
         backup: true
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
-        Enterprise Linux' or ansible_distribution == 'RedHat'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
     - name: Restart chronyd
       ansible.builtin.service:
         name: chronyd
         state: restarted
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
-        Enterprise Linux' or ansible_distribution == 'RedHat'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
