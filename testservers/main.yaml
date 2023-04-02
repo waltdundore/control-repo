@@ -2,7 +2,7 @@
 - name: Monolithic update
   hosts: testservers
   become: true
-  user: wdundore
+  become_user: root
   connection: ssh
   tasks:
     - name: Install apache
