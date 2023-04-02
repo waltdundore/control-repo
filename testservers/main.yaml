@@ -28,7 +28,7 @@
         Enterprise Linux' or ansible_distribution == 'RedHat'
     - name: Deploy chrony.conf template
       ansible.builtin.template:
-        src: /templates/etc/chrony.conf.j2
+        src: /var/lib/awx/projects/_6__demo_project/templates/etc/chrony.conf.j2
         dest: /etc/chrony.conf
         owner: root
         group: root
