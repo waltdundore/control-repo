@@ -1,5 +1,5 @@
 ---
-- name: Monolithic update
+- name: Monolithic configuration
   hosts: testservers
   become: true
   become_user: root
@@ -20,8 +20,6 @@
       ansible.builtin.dnf:
         name:
           - chrony
-          - httpd
-          - mariadb-server
         state: latest
         update_cache: true
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
