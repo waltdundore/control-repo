@@ -7,8 +7,9 @@
   tasks:
     - name: Update Debian based Machines
       ansible.builtin.apt:
-        name: "*"
-        state: latest
+        upgrade: true
+        update_cache: true
+        cache_valid_time: 21600 # 1/4 day
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
     - name: Update yum systems
       ansible.builtin.dnf:
