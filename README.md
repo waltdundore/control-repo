@@ -1,2 +1,2 @@
 # Ansible Control-Repo
-# Currently targeting RHEL 8
+Currently targeting RHEL 8
