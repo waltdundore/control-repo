@@ -1,17 +1,11 @@
 ---
-- name: Monolithic configuration
+- name: Monolithic update
   hosts: testservers
   become: true
   become_user: root
   connection: ssh
   tasks:
-    - name: Update Debian based Machines
-      ansible.builtin.apt:
-        upgrade: true
-        update_cache: true
-        cache_valid_time: 21600 # 1/4 day
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-    - name: Update yum systems
+    - name: Update Redhat
       ansible.builtin.dnf:
         name: "*"
         state: latest
@@ -20,14 +14,12 @@
       ansible.builtin.dnf:
         name:
           - chrony
-          - podman
-          - podman-compose
         state: latest
         update_cache: true
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
     - name: Deploy chrony.conf template
       ansible.builtin.get_url:
-        url: https://raw.githubusercontent.com/waltdundore/control-repo/production/templates/etc/chrony.conf.j2
+        url: /var/lib/awx/projects/_11__ansible_control_repository/templates/etc/chrony.conf.j2
         dest: /etc/chrony.conf
         owner: root
         group: root
@@ -38,4 +30,5 @@
       ansible.builtin.service:
         name: chronyd
         state: restarted
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat
+        Enterprise Linux' or ansible_distribution == 'RedHat'
