@@ -1,0 +1,17 @@
+---
+- name: Chrony time update
+  hosts: workstations
+  become: true
+  become_user: root
+  connection: ssh
+  tasks:
+    - name: allow cockpit for 172 vlan
+      ansible.posix.firewalld:
+        source: 172.16.1.0/24
+        port: 9090:tcp
+        state: enabled
+    - name: allow cockpit for 192 vlan
+      ansible.posix.firewalld:
+        source: 192.168.1.0/24
+        port: 9090:tcp
+        state: enabled
