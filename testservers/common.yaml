@@ -23,7 +23,7 @@
           - mullvad-vpn
         state: latest
         update_cache: true
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Rocky'
+      when: ansible_distribution == 'Fedora'
     - name: Package installation
       ansible.builtin.dnf:
  
