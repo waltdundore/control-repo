@@ -9,21 +9,21 @@
       ansible.builtin.dnf:
         name: "*"
         state: latest
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'  or ansible_distribution == 'Rocky'
     - name: Package installation
       ansible.builtin.dnf:
         name:
           - chromium
         state: latest
         update_cache: true
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Rocky'
     - name: Package installation
       ansible.builtin.dnf:
         name:
           - mullvad-vpn
         state: latest
         update_cache: true
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora'
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat' or ansible_distribution == 'Fedora' or ansible_distribution == 'Rocky'
     - name: Package installation
       ansible.builtin.dnf:
  
