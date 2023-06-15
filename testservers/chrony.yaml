@@ -1,6 +1,6 @@
 ---
 - name: Chrony time update
-  hosts: testservers
+  hosts: all
   become: true
   become_user: root
   connection: ssh
